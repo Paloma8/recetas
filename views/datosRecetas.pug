@@ -1,0 +1,35 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Modificando datos Recetas
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	body
+		f registros
+			form(id="form2" action="/listaRecetas" method="post")
+				p
+					select(id="selectrecetas" form="form2" name="nombre")
+						each registro in registros
+							option(value=registro.id_receta) #{registro.nombre}
+				p
+					input(type="submit" value="Enviar Lista de Recetas")
+		if registros3
+					each registro in registros3
+						ul
+						 li#{registro.descripcion}
+			
+		h1 Introduciendo Recetas
+		p #{mensaje}
+		form(id="form1" action="/modificaReceta" method="put")
+					p
+						input(type="hidden"  name="id_receta")
+						label(for="Form") Nombre:
+						input(type="text" id="nombreForm" name="nombre" value="")
+					p
+						label(for="fechaForm") Fecha_publicación:
+						input(type="date"  id="fechaForm" name="fecha_publicacion" value="")
+					p
+						label(for="descripcionForm") Descripción:
+						textarea(rows="4"  cols="50"  name="descripcion" id="descripcionForm" value="")
+					p
+						input(type="submit" id="boton2" value="Enviar")

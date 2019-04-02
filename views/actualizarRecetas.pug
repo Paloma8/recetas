@@ -1,0 +1,25 @@
+doctype html
+html
+	meta(charset="utf-8")
+	title Actualizar Receta
+body
+	if registros
+		form(id="seleccionaRecetaForm" action="/actualizaReceta" method="get")
+			p
+				select(name="nombresRecetas" form="seleccionaRecetaForm")
+					each registro in registros
+						option(value=registro.id_receta) #{registro.nombre}
+			p
+				input(type="submit" value="Muestra Receta")
+	if registros2
+		form(id="actualizaRecetaForm" action="/actualizaReceta/actualizar" method="post")
+			p
+				input(type="hidden"  name="id_receta" value=registros2[0].id_receta)
+				label(for="nombreForm") Nombre:
+				input(type="text" id="nombreForm" name="nombre" value=registros2[0].nombre)
+			p
+				label(for="descripcionForm") Descripción:
+				input(type="text" name="descripcion" id="descripcionForm" form="actualizaRecetaForm" value=registros2[0].descripcion)
+			p
+				input(type="submit" id="boton2" value="Actualizar")
+				input(type="hidden" name="metodo"  value="put")

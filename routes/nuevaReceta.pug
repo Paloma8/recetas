@@ -1,0 +1,21 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Recetas Nuevas
+	body
+		h1 Introduciendo Recetas
+		p #{mensaje}
+		form(id="form1" action="/nuevaReceta" method="post")
+				p
+					input(type="hidden"  name="id_receta")
+					label(for="Form") Nombre:
+					input(type="text" class="field" id="nombreForm" name="nombre")			
+				p
+					label(for="fecha_publicacionForm") Fecha_publicación:
+					input(type="date" class="field" id="fecha_publicacionForm" name="fecha_publicacion")				
+				p
+					label(for="descripcion") Descripción:
+					textarea(rows="4"   cols="50" class="field" name="descripcionForm" id="descripcion")					
+				p
+					input(type="submit"  class="btn btn-green" id="boton2" value="Enviar")

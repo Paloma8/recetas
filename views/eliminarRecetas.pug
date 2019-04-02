@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Recetas para Eliminar
+	body
+		h1 Eliminar Recetas
+		p #{mensaje}
+		form(id="form1" action="/eliminaRecetas/eliminar" method="post")
+				p
+					input(type="hidden"  name="metodo" value="delete")
+					label(for="Form") Elimina el nombre de la recta que escribas acontinuación:
+					input(type="text" class="field" id="nombreForm" name="nombre")
+				p
+					input(type="submit"  class="btn btn-green" id="boton2" value="Enviar")
